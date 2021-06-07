@@ -1,0 +1,2 @@
+# try_sentencepiece
+sentencepieceとmecabによるtweetの比較
