@@ -13,6 +13,8 @@ gensim = "<=3.8.3"
 ipdb = "^0.13.9"
 japanize-matplotlib = "^1.1.3"
 mecab-python3 = "^1.0.3"
+flake8 = "^3.9.2"
+autopep8 = "^1.5.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
