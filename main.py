@@ -15,6 +15,7 @@ def is_len_over_n(input_text: str, n: int) -> bool:
 
 if __name__ == "__main__":
 
+    # 引数を受け取る
     tokenizer = sys.argv[1]
     word_len = int(sys.argv[2])
 
@@ -41,12 +42,18 @@ if __name__ == "__main__":
     collect_df = pd.DataFrame({'vocab':dict(collect).keys(), 'cnt':dict(collect).values()})
     collect_df = collect_df.sort_values('cnt',ascending=False)
 
+    # 文字の大きさを変更
+    plt.rcParams["font.size"] = 14
+
     # top10を棒グラフで描画
     plt.barh(collect_df['vocab'][:20], collect_df['cnt'][:20])
     plt.xlabel('count')
     plt.ylabel('vocab')
     plt.title(f'My tweet top20 vocab by {tokenizer}, len>{word_len}')
     plt.gca().invert_yaxis()
+
+    # 文字の位置の調整
+    plt.tight_layout()
 
     # 画像の保存
     save_path = f'image/result_{tokenizer}_len_over{word_len}.png'
