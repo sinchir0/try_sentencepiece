@@ -44,13 +44,18 @@ if __name__ == "__main__":
 
     # 描画用のDataFrameを生成
     collect_df = pd.DataFrame(
-        {'vocab': dict(collect).keys(), 'cnt': dict(collect).values()})
+        {
+            'vocab': dict(collect).keys(),
+            'cnt': dict(collect).values()
+        }
+    )
+
     collect_df = collect_df.sort_values('cnt', ascending=False)
 
     # 文字の大きさを変更
     plt.rcParams["font.size"] = 14
 
-    # top10を棒グラフで描画
+    # top20を棒グラフで描画
     plt.barh(collect_df['vocab'][:20], collect_df['cnt'][:20])
     plt.xlabel('count')
     plt.ylabel('vocab')
